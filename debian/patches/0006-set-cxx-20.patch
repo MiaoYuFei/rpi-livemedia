@@ -1,0 +1,22 @@
+--- a/config.linux
++++ b/config.linux
+@@ -4,7 +4,7 @@
+ C_FLAGS =		$(COMPILE_OPTS) $(CPPFLAGS) $(CFLAGS)
+ CPP =			cpp
+ CPLUSPLUS_COMPILER =	$(CXX)
+-CPLUSPLUS_FLAGS =	$(COMPILE_OPTS) -Wall -DBSD=1 $(CPPFLAGS) $(CXXFLAGS)
++CPLUSPLUS_FLAGS =	$(COMPILE_OPTS) -std=c++20 -Wall -DBSD=1 $(CPPFLAGS) $(CXXFLAGS)
+ OBJ =			o
+ LINK =			$(CXX) -o
+ LINK_OPTS =		-L. $(LDFLAGS)
+--- a/config.linux-with-shared-libraries
++++ b/config.linux-with-shared-libraries
+@@ -30,7 +30,7 @@
+ C_FLAGS =		$(COMPILE_OPTS) $(CPPFLAGS) $(CFLAGS)
+ CPP =			cpp
+ CPLUSPLUS_COMPILER =	$(CXX)
+-CPLUSPLUS_FLAGS =	$(COMPILE_OPTS) -Wall -DBSD=1 $(CPPFLAGS) $(CXXFLAGS)
++CPLUSPLUS_FLAGS =	$(COMPILE_OPTS) -std=c++20 -Wall -DBSD=1 $(CPPFLAGS) $(CXXFLAGS)
+ OBJ =			o
+ LINK =			$(CXX) -o
+ LINK_OPTS =		-L. $(LDFLAGS)

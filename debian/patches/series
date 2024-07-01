@@ -3,3 +3,4 @@
 0003-Link-shared-libraries-with-g-instead-of-gcc-to-fix-b.patch
 0004-Reduce-number-of-unresolved-symbols-by-linking-libra.patch
 0005-Build-without-OpenSSL.patch
+0006-set-cxx-20.patch
