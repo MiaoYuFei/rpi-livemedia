@@ -1,17 +1,6 @@
-From: Christophe Mutricy <xtophe@videolan.org>
-Date: Sat, 16 Sep 2017 11:22:03 +0200
-Subject: ip_mreq_source is defined in all glibc not just on kfreebsd
-
-Fix hurd FTBFS.
----
- groupsock/GroupsockHelper.cpp | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/groupsock/GroupsockHelper.cpp b/groupsock/GroupsockHelper.cpp
-index c40bf57..1b2263b 100644
 --- a/groupsock/GroupsockHelper.cpp
 +++ b/groupsock/GroupsockHelper.cpp
-@@ -542,12 +542,14 @@ Boolean socketLeaveGroup(UsageEnvironment&, int socket,
+@@ -653,12 +653,14 @@
  // commands, and a special structure (ip_mreq_source).  If the include files
  // didn't define these, we do so here:
  #if !defined(IP_ADD_SOURCE_MEMBERSHIP)

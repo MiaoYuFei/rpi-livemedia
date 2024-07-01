@@ -1,14 +1,3 @@
-From: Benjamin Drung <bdrung@debian.org>
-Date: Sat, 16 Sep 2017 11:22:04 +0200
-Subject: Link shared libraries with g++ instead of gcc to fix build failure
-
----
- config.linux                       | 6 +++---
- config.linux-with-shared-libraries | 6 +++---
- 2 files changed, 6 insertions(+), 6 deletions(-)
-
-diff --git a/config.linux b/config.linux
-index b4021ef..efff3a9 100644
 --- a/config.linux
 +++ b/config.linux
 @@ -1,12 +1,12 @@
@@ -27,16 +16,11 @@ index b4021ef..efff3a9 100644
  LINK_OPTS =		-L. $(LDFLAGS)
  CONSOLE_LINK_OPTS =	$(LINK_OPTS)
  LIBRARY_LINK =		ar cr 
-diff --git a/config.linux-with-shared-libraries b/config.linux-with-shared-libraries
-index 04d0ea0..2ae04ef 100644
 --- a/config.linux-with-shared-libraries
 +++ b/config.linux-with-shared-libraries
-@@ -33,12 +33,12 @@ CPLUSPLUS_COMPILER =	$(CXX)
- CPLUSPLUS_FLAGS =	$(COMPILE_OPTS) -Wall -DBSD=1 $(CPPFLAGS) $(CXXFLAGS)
- OBJ =			o
+@@ -35,10 +35,10 @@
  LINK =			$(CXX) -o
--LINK_OPTS =		-L. $(LDFLAGS)
-+LINK_OPTS =		-L. $(CPPFLAGS) $(LDFLAGS)
+ LINK_OPTS =		-L. $(LDFLAGS)
  CONSOLE_LINK_OPTS =	$(LINK_OPTS)
 -LIBRARY_LINK =		$(CC) -o 
 +LIBRARY_LINK =		$(CXX) -o 
@@ -46,4 +30,4 @@ index 04d0ea0..2ae04ef 100644
 +LIBRARY_LINK_OPTS =	-shared -Wl,-soname,$(NAME).$(SHORT_LIB_SUFFIX) $(CPPFLAGS) $(LDFLAGS)
  LIBS_FOR_CONSOLE_APPLICATION = -lssl -lcrypto
  LIBS_FOR_GUI_APPLICATION =
- EXE =
+ LIBS_FOR_LIVEMEDIA_LIB = -lssl -lcrypto

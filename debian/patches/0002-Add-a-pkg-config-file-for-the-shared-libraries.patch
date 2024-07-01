@@ -1,16 +1,3 @@
-From: Benjamin Drung <bdrung@debian.org>
-Date: Sat, 16 Sep 2017 11:22:03 +0200
-Subject: Add a pkg-config file for the shared libraries
-
----
- Makefile.head | 3 +++
- Makefile.tail | 7 ++++++-
- live555.pc.in | 9 +++++++++
- 3 files changed, 18 insertions(+), 1 deletion(-)
- create mode 100644 live555.pc.in
-
-diff --git a/Makefile.head b/Makefile.head
-index 458c54c..1571037 100644
 --- a/Makefile.head
 +++ b/Makefile.head
 @@ -1 +1,4 @@
@@ -18,11 +5,9 @@ index 458c54c..1571037 100644
 +LIBDIR = /usr/local/lib
 +VERSION = $(shell grep LIVEMEDIA_LIBRARY_VERSION_STRING liveMedia/include/liveMedia_version.hh | sed 's/.*"\([^"]*\)".*/\1/')
  ##### Change the following for your environment:
-diff --git a/Makefile.tail b/Makefile.tail
-index fc594ea..a20a527 100644
 --- a/Makefile.tail
 +++ b/Makefile.tail
-@@ -22,7 +22,12 @@ all:
+@@ -25,7 +25,12 @@
  	@echo
  	@echo "For more information about this source code (including your obligations under the LGPL), please see our FAQ at http://live555.com/liveMedia/faq.html"
  
@@ -36,9 +21,6 @@ index fc594ea..a20a527 100644
  	cd $(LIVEMEDIA_DIR) ; $(MAKE) install
  	cd $(GROUPSOCK_DIR) ; $(MAKE) install
  	cd $(USAGE_ENVIRONMENT_DIR) ; $(MAKE) install
-diff --git a/live555.pc.in b/live555.pc.in
-new file mode 100644
-index 0000000..3736944
 --- /dev/null
 +++ b/live555.pc.in
 @@ -0,0 +1,9 @@
