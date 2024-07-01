@@ -1,3 +1,9 @@
+liblivemedia (1:2020.01.19-1ubuntu1) noble; urgency=medium
+
+  * Build for Ubuntu Noble
+
+ -- Yufei Miao <m.yufei@wustl.edu>  Sun, 30 Jun 2024 23:58:40 +0000
+
 liblivemedia (1:2020.01.19-1ubuntu1) jammy; urgency=medium
 
   * Build for Ubuntu Jammy
